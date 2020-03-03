@@ -1,0 +1,32 @@
+{
+  "name": "oauth",
+  "version": "0.0.1",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": "10.x.x"
+  },
+  "scripts": {
+    "func:oauth2": "PORT=9090 functions-framework --target=oauth2",
+    "emu:server": "gcloud beta emulators datastore start",
+    "emu:setenv": "$(gcloud beta emulators datastore env-init)",
+    "emu:unsetenv": "$(gcloud beta emulators datastore env-unset)",
+    "ds:check": "node datastore-man.js",
+    "code:gen": "node code-password.js"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.3.2"
+  },
+  "dependencies": {
+    "@google-cloud/datastore": "^4.4.0",
+    "append-query": "^2.1.0",
+    "bcrypt": "^3.0.6",
+    "express": "^4.17.1",
+    "fernet": "^0.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "pug": "^2.0.4"
+  }
+}

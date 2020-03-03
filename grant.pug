@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    title Granting Access
+  body
+  h3 #{client_id} is requesting access to your account.
+  p.
+    Login to grant #{client_id} access.
+  form(action='http://localhost:9090/oauth2/token', method='POST')
+    p.
+    input(type='checkbox' name='scope1' value=client_id checked)
+    | #{client_id}
+    p.
+    input(type='checkbox' name='scope2' value=redirect_url checked)
+    | #{scope}
+    input(type='hidden' name='client_id' value=client_id)
+    input(type='hidden' name='redirect_url' value=redirect_url)
+    input(type='hidden' name='client_secret' value=client_secret)
+    input(type='hidden' name='grant_type' value=grant_type)
+    p.
+    input(type='submit' name='Authorize')
+    if code_challenge
+      input(type='hidden' name='code_challenge' value=code_challenge)
+    if authorization_code
+      input(type='hidden' name='authorization_code' value=authorization_code)
