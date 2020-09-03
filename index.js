@@ -9,7 +9,7 @@ const jwt = require('jsonwebtoken');
 const {encodeToken, getPrivateKey, encodeManager, bcryptCompare} = require('./token');
 
 const JWT_LIFE_SPAN = 20 * 60 * 1000;
-const CODE_LIFE_SPAN = 10 * 60 * 1000; // max 10 minutes
+const CODE_LIFE_SPAN = 15 * 60 * 1000; // max 15 minutes
 const ISSUER = 'sample-issuer';
 
 const JWT_ALG = 'RS256';
